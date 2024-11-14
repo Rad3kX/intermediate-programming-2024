@@ -3,26 +3,44 @@
 
 // Napište funckci, která vrátí součin dvou čísel
 int multiply(int a, int b) {
-    return 0;
+    return a*b;
 }
+
+
 
 // Napište funkci, která rozhodne jestli číslo je sudé
 bool is_even(int x) {
-    return false;
+    if (x % 2 == 1) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 // Vypište věechny čísla od start do stop (včetně)
 void print_numbers(int start, int stop) {
+    for (int i = start; i <= stop; i++) {
+        std::cout << i << std::endl;
+    }
 }
+
 
 // Naimplementujte funkci která pořítá faktoriál
 // Faktoriál čísla x je definovaný jako součin všech kladných čísel <= x
 int factorial(int x) {
+    for (int i = (x-1); i >= 1; i--){
+        x*i;
+    }
+
     return 0;
 }
 
 // Funkce vypíše count hvězdiček
 void print_stars(unsigned int count) {
+    for (int i = count; i >= 1; i--){
+         std::cout << "*";
+    }
+    return 0;
 }
 
 // Funkce vypíše obdélníček z hvězdiček
