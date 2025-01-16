@@ -16,26 +16,94 @@ void print(std::vector<int> data) {
 }
 
 int sum(std::vector<int> data) {
-    return 0;
+    int s = 0;
+    for(std::size_t i = 0; i < data.size(); i++){
+        int b = data[i];
+        s = s + b;
+    }
+    return s;
 }
 
 float average(std::vector<int> data) {
-    return 0.0;
+    int total = data.size();
+    float avg;
+    float s = 0;
+    for(std::size_t i = 0; i < data.size(); i++){
+        int b = data[i];
+        s = s + b;
+    }
+    avg = (s/total);
+    return avg;
 }
 
-float median(std::vector<int> data) {
-    return 0.0;
+float median(std::vector<int> data) {   //lichý --> prostredni hodnota, sudy --> průměr dvou prostředních  0(1), 1(3), 2(4)
+    float median;
+    int center;
+    if(data.size()%2 ==0){
+        center = data.size()/2;
+        median = data[center];
+    }
+    else{
+        center = data.size()/2;
+        median = (data[center] + data[center+1])/2;  
+    }
+    return median;
 }
+//prvky do pole --> pole.push_back(5)
 
 std::vector<int> range(int start, int end) {
-    return {};
+    int delta =  end - start;
+    std::vector<int> range2;
+    if(delta>0){
+        range2.resize(0);
+        for(int i = start; i<end; i++){
+            range2.push_back(i);
+        }
+    } else if(delta ==0){
+        range2.resize(0);
+
+    }
+    else{
+        int a = delta;
+        delta = abs(a);
+        range2.resize(0);
+        for(int x = start; x > end; x--){
+            range2.push_back(x);
+        }
+    }
+    return range2;
 }
 
 std::vector<int> runningSum(std::vector<int> data) {
-    return {};
+    int a =0;
+    std::vector<int> suma;
+    //suma.resize(0);
+    //suma.push_back(data[0]);
+    for(std::size_t i = 0; i < data.size()-1; i++){
+        a += data[i];
+        suma.push_back(a);
+    }
+
+    return suma;
 }
 
 std::vector<int> rotateRight(std::vector<int> data, int count) {
+    int n = data.size();
+    count = count % n;
+    std::vector<int> zmena(count);
+
+    for(int i = 0; i < count; i++){
+        zmena[i] = data[n - count + i];
+    }
+
+    for(int i = n - 1; i >= count; i--){
+        data[i] = data[i - count];
+    }
+
+    for(int i = 0; i < count; i++){
+        data[i] = zmena[i];
+    }
+
     return data;
 }
 
@@ -59,4 +127,16 @@ int main() {
     std::cout << "runningSum(vec1): ";
     print(runningSum(vec1));
     std::cout << std::endl;
+    std::vector<int> result = rotateRight(vec1, 3);
+
+    std::cout << "pole po posunu: [ ";
+    for (std::size_t i = 0; i < result.size(); i++) {
+        if (i < result.size() - 1) {
+            std::cout << result[i] << ", ";
+        } else {
+            std::cout << result[i] << " ]" << std::endl;
+        }
+    }
+
+    return 0;
 }

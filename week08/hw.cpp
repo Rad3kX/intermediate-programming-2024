@@ -21,6 +21,12 @@ void print(std::vector<int> data) {
  * vzestupně seřazeného seznamu
  * */
 std::vector<int> merge(std::vector<int> a, std::vector<int> b) {
+    std::size_t i_a =0;
+    std::size_t i_b =0;
+    std::vector<out>;
+    while(i_a < a.size() && i_b < b.size()){
+        
+    }
     return {};
 }
 
